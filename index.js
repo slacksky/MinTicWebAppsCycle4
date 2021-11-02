@@ -4,12 +4,21 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose')
 const router = express.Router();
 //user schema improt from models folder
-const UserSchema = require('./models/User.js')
+const UserSchema = require('./models/user.js')
 //mongo db connection command
 mongoose.connect("mongodb+srv://sky:JV46pt27.@clustertic.wzb4v.mongodb.net/test")
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+app.use(router)
+app.listen(port,() => {
+    console.log('Listening on '+port)
+})
 router.get('/', (req, res) => {
+    res.send("Hello World");
+});
+
+
+router.get('/user', (req, res) => {
     UserSchema.find(function(err, data){
         if(err){
             console.log(err)
@@ -36,7 +45,3 @@ router.post('/user', (req, res) => {
     });
 })
 
-app.use(router)
-app.listen(port,() => {
-    console.log('Listening on '+port)
-})
