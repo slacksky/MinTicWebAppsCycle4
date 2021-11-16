@@ -5,12 +5,14 @@ const mongoose = require('mongoose')
 const router = express.Router();
 //user schema improt from models folder
 const UserSchema = require('./models/user.js')
+//const connect2mongo = require('secrets.json')
 //mongo db connection command
 mongoose.connect("mongodb+srv://sky:JV46pt27.@clustertic.wzb4v.mongodb.net/test")
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(router)
 app.listen(port,() => {
+    console.log('connecting on '+connect)
     console.log('Listening on '+port)
 })
 router.get('/', (req, res) => {
