@@ -1,2 +1,4 @@
 index.js
 project/src/datasources/mongo.datasource.ts
+project/src/datasources/project-ds.datasource.ts
+secrets.json
