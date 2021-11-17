@@ -15,14 +15,7 @@ env = json.loads(f.read())
 @app.route('/test', methods=['GET'])
 def test():
     return "hello world"
- 
-#Ejecutamos el servidor
-if __name__ == '__main__':
-    app.run()
 
-Para ejecutar el servidor, lanzamos el comando py index.py
-Abrimos en nuestro navegador, la url: http://localhost:5000/test
-Para crear el API de mensajes, ponerlo debajo del servicio de test
 
 @app.route('/send_sms', methods=['POST'])
 def send_sms():
@@ -45,3 +38,8 @@ def send_sms():
     except Exception as e:
         print(e)
         return "error"
+
+
+#Ejecutamos el servidor
+if __name__ == '__main__':
+    app.run(host="0.0.0.0")
