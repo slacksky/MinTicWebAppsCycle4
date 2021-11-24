@@ -42,4 +42,5 @@ def send_sms():
 
 #Ejecutamos el servidor
 if __name__ == '__main__':
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0", port=5001)
+##config local por tener un servidor de pytohn corriendo en *:5000

@@ -68,7 +68,7 @@ export class UsuarioController {
     let contenido = `Hola, ${usuario.nombre} ${usuario.apellidos} su contraseña en el portal es: ${clave}`
     axios({
       method: 'post',
-      url: 'http://localhost:5000/send_sms', //Si quiero enviar por mensaje cambiar a send_sms
+      url: 'http://localhost:5001/send_sms', //Si quiero enviar por mensaje cambiar a send_sms, puerto 5001  por conflicto con servidor
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
