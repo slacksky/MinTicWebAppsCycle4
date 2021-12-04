@@ -1,5 +1,4 @@
 "use strict";
-var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UsuarioController = void 0;
 const tslib_1 = require("tslib");
@@ -86,7 +85,7 @@ let UsuarioController = class UsuarioController {
             };
         }
         else {
-            throw new HttpErrors[401]("Datos invalidos");
+            throw new rest_1.HttpErrors[401]("Datos invalidos");
         }
     }
 };
@@ -221,7 +220,7 @@ let UsuarioController = class UsuarioController {
     }),
     (0, tslib_1.__param)(0, (0, rest_1.requestBody)()),
     (0, tslib_1.__metadata)("design:type", Function),
-    (0, tslib_1.__metadata)("design:paramtypes", [typeof (_a = typeof Credenciales !== "undefined" && Credenciales) === "function" ? _a : Object]),
+    (0, tslib_1.__metadata)("design:paramtypes", [models_1.Credenciales]),
     (0, tslib_1.__metadata)("design:returntype", Promise)
 ], UsuarioController.prototype, "login", null);
 UsuarioController = (0, tslib_1.__decorate)([
