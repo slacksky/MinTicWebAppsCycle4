@@ -3,3 +3,5 @@ project/src/datasources/mongo.datasource.ts
 project/src/datasources/project-ds.datasource.ts
 secrets.json
 apinotificaciones/config.json
+src/datasources/mongo.datasource.ts
+src/datasources/project-ds.datasource.ts
