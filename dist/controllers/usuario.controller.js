@@ -10,6 +10,7 @@ const repositories_1 = require("../repositories");
 const core_1 = require("@loopback/core");
 const services_1 = require("../services");
 const axios_1 = (0, tslib_1.__importDefault)(require("axios"));
+const authentication_1 = require("@loopback/authentication");
 let UsuarioController = class UsuarioController {
     constructor(usuarioRepository, servicioAuth) {
         this.usuarioRepository = usuarioRepository;
@@ -90,6 +91,8 @@ let UsuarioController = class UsuarioController {
     }
 };
 (0, tslib_1.__decorate)([
+    authentication_1.authenticate.skip() //skip the auth 
+    ,
     (0, rest_1.post)('/usuarios'),
     (0, rest_1.response)(200, {
         description: 'Usuario model instance',
@@ -211,6 +214,8 @@ let UsuarioController = class UsuarioController {
     (0, tslib_1.__metadata)("design:returntype", Promise)
 ], UsuarioController.prototype, "deleteById", null);
 (0, tslib_1.__decorate)([
+    authentication_1.authenticate.skip() //skip the auth 
+    ,
     (0, rest_1.post)('/login', {
         responses: {
             '200': {
@@ -224,6 +229,8 @@ let UsuarioController = class UsuarioController {
     (0, tslib_1.__metadata)("design:returntype", Promise)
 ], UsuarioController.prototype, "login", null);
 UsuarioController = (0, tslib_1.__decorate)([
+    (0, authentication_1.authenticate)("admin") //adds the auth requrement to login from admin
+    ,
     (0, tslib_1.__param)(0, (0, repository_1.repository)(repositories_1.UsuarioRepository)),
     (0, tslib_1.__param)(1, (0, core_1.service)(services_1.AuthService)),
     (0, tslib_1.__metadata)("design:paramtypes", [repositories_1.UsuarioRepository,

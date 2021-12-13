@@ -24,7 +24,9 @@ import {UsuarioRepository} from '../repositories';
 import {service} from '@loopback/core';
 import {AuthService} from '../services';
 import axios from 'axios';
+import { authenticate } from '@loopback/authentication';
 
+@authenticate("admin")//adds the auth requrement to login from admin
 export class UsuarioController {
   constructor(
     @repository(UsuarioRepository)
@@ -33,6 +35,7 @@ export class UsuarioController {
     public servicioAuth: AuthService
   ) {}
 
+  @authenticate.skip()//skip the auth 
   @post('/usuarios')
   @response(200, {
     description: 'Usuario model instance',
@@ -192,6 +195,7 @@ export class UsuarioController {
   }
   
    //Servicio de login
+   @authenticate.skip()//skip the auth 
    @post('/login', {
     responses: {
       '200': {
